@@ -1,6 +1,6 @@
 {
   "name": "webpack",
-  "homepage": "http://git@github.com:MikaRatilainen/webpack.git",
+  "homepage": "https://github.com/MikaRatilainen/webpack/tree/gh-pages",
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
