@@ -3,7 +3,7 @@ const LENGTH_MESSAGE = 'Должно быть от 2 до 30 символов';
 const URL_MESSAGE = 'Здесь должна быть ссылка';
 const URL = 'url';
 
-function checkFormValidness(form, submitButton) {
+export function checkFormValidness(form, submitButton) {
     const isNotValid = Array.from(form.elements).some(inputElem => {
         return !inputElem.validity.valid;
     });
@@ -11,7 +11,7 @@ function checkFormValidness(form, submitButton) {
     submitButton.disabled = isNotValid;
 }
 
-function validateInput(inputElem) {
+export function validateInput(inputElem) {
     if (inputElem.type === URL) {
         return validateLinkField(inputElem);
     }
@@ -60,8 +60,8 @@ function showMessage(inputElem, text) {
     messageElem.textContent = text;
 }
 
-function resetForm(newCardForm) {
-    Array.from(newCardForm.elements).forEach(inputElem => {
+export function resetForm(form) {
+    Array.from(form.elements).forEach(inputElem => {
         if (inputElem.type !== 'button') {
             inputElem.value = '';
             showMessage(inputElem, '');

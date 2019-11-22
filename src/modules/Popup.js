@@ -1,4 +1,6 @@
-class Popup {
+import { resetForm } from '../services/validateService';
+
+export class Popup {
     constructor(popup) {
         this.popup = popup;
     }

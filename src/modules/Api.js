@@ -1,8 +1,8 @@
-const GROUP = 'cohort4';
-const BASE_URL = 'http://95.216.175.5/';
-const TOKEN = '92287dd9-da1e-4d69-917d-e8545246257c';
+export const GROUP = 'cohort4';
+export const TOKEN = '92287dd9-da1e-4d69-917d-e8545246257c';
+export const SERVER_URL = NODE_ENV === 'development' ? 'http://praktikum.tk/' : 'https://praktikum.tk/';
 
-class Api {
+export class Api {
     constructor(group, url, token) {
         this.baseUrl = `${url}${group}`;
         this.token = token;
@@ -107,22 +107,3 @@ class Api {
         console.log(err);
     }
 }
-
-/**
- * Отличная работа
- * 
- * Можно лучше: лучше все js файлы переложить в отдельную папку, а то в корне не очень как-то
- * 
- * весь функционал проверил, всё работает без ошибок
- * 
- * Класс Api отлично написан, не ожидал такого.
- * 
- * файл validateService.js прям просит чтоб из него сделали validateService.js
- * 
- * норм Джокер ;)
- * 
- * Работу принимаю и жду Вас в следующих спринтах
- * 
- * @koras
- * 
- */
