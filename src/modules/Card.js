@@ -1,12 +1,15 @@
-class Card {
-    constructor({ name, link, likes, _id, owner }) {
+import { Api, SERVER_URL, GROUP, TOKEN } from './Api';
+
+export class Card {
+    constructor({ name, link, likes, _id, owner }, userId) {
         this._id = _id;
         this.name = name;
         this.link = link;
         this.likes = likes;
         this.owner= owner;
+        this.userId = userId;
         this.isUserLiked = this.getIsUserLiked();
-        this.api = new Api(GROUP, BASE_URL, TOKEN);
+        this.api = new Api(GROUP, SERVER_URL, TOKEN);
 
         this.removeHandler = this.remove.bind(this);
         this.likeHandler = this.toggleLike.bind(this);
@@ -29,7 +32,7 @@ class Card {
         image.classList.add('place-card__image');
         image.style.backgroundImage = `url(${this.link})`;
         
-        if (userId === this.owner._id) {
+        if (this.userId === this.owner._id) {
             const deleteButton = document.createElement('button');
             deleteButton.classList.add('place-card__delete-icon');
             deleteButton.addEventListener('click', this.removeHandler);
@@ -71,7 +74,7 @@ class Card {
     }
 
     getIsUserLiked() {
-        return this.likes.some(user => userId === user._id);
+        return this.likes.some(user => this.userId === user._id);
     }
 
     toggleLike() {
